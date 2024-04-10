@@ -1,0 +1,25 @@
+<app-page-top [clientId]="this.clientId"></app-page-top>
+<div class="details-page-container">
+    <image-container [imageUrl]="restaurant.image"></image-container>
+    <div class="details-info-containers">
+        <details-info-container>
+            <div class="Header">Rating</div>
+            <restaurant-reviews [restaurantId]="this.restaurant.id"></restaurant-reviews>
+        </details-info-container>
+        <details-info-container>
+            <div class="Header">{{restaurant.name}}</div>
+            <mat-divider></mat-divider>
+            <restaurant-details [restaurant]='restaurant'></restaurant-details>
+            <mat-divider></mat-divider>
+            <div class="Header">Status</div>
+            <restaurant-status [restaurant]='restaurant' class="details-restaurant-status">
+            </restaurant-status>
+        </details-info-container>
+    </div>
+    <details-info-container class="location">
+        <restaurant-location [center]="this.center"></restaurant-location>
+    </details-info-container>
+    <div class="menu-list">
+        <menu-list [restaurantId]="id"></menu-list>
+    </div>
+</div>

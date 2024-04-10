@@ -1,0 +1,22 @@
+<div class="make-review-restaurant-name">
+    Restaurant name
+</div>
+<div class="make-review-content">
+    <div class="make-review-input-text">
+        <form class="app-input-form">
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Review</mat-label>
+                <input name="description" [(ngModel)] = "description" matInput class="app-input" placeholder="Write your thoughts here" type="text">
+            </mat-form-field>
+        </form>
+    </div>
+    <div>
+        <app-star-rating [rating]="rating" [starCount]="starCount" [color]="starColorP"
+            (ratingUpdated)="onRatingChanged($event)">
+        </app-star-rating>
+    </div>
+    <div class="make-review-buttons">
+        <app-button buttonText="Post" (click)="onOkClick()"></app-button>
+        <app-button buttonText="Cancel" (click)="onCancelClick()"></app-button>
+    </div>
+</div>

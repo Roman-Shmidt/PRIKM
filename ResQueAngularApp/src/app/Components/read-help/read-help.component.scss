@@ -1,0 +1,18 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-size: 1.4em;
+    padding-top: 1em;
+    font-weight: bold;
+}
+
+.help{
+    font-size: 1.1em;
+    text-align: justify;
+    word-wrap: break-word;
+    padding: 1em;
+}

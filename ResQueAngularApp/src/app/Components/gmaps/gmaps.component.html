@@ -1,0 +1,24 @@
+<google-map #map height="350px" 
+    width="100%" 
+    [center]="center" 
+    [zoom]="zoom">
+    <map-marker #marker="mapMarker"  
+        [position]="markerPosition"
+        [options]="markerOptions"
+        (mapClick)="openInfoWindow(marker, infoWindow)"
+        (mapMouseover)="openInfoWindow(marker, infoWindow)">
+        
+        
+    </map-marker>
+    <map-marker *ngIf="userLocation && userLocation.lat !== 0 && userLocation.lng !== 0"
+            [position]="userLocation"
+            [options]="userMarkerOptions">
+    </map-marker>
+    <map-info-window #infoWindow="mapInfoWindow"> 
+        Content of ...
+    </map-info-window>
+</google-map>
+<div class="mapInfoWindow"> 
+    Commute time: {{commuteTime}} <br/>
+    Commute distance: {{commuteDistance}}
+</div>

@@ -1,0 +1,28 @@
+<div class="add-menu-restaurant-name">
+    <h5>Restaurant name</h5>
+</div>
+<div class="add-menu-content">
+
+    <div class="details-input-text">
+        <form class="app-input-form">
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Menu Name</mat-label>
+                <input matInput class="app-input" placeholder="Write your wishes here" type="text"
+                [(ngModel)] = "name" (change)="onValueChangedd()" name="nameInput">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="details-input-text">
+        <form class="app-input-form">
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Photo Url</mat-label>
+                <input matInput class="app-input" placeholder="Write your wishes here" type="text"
+                [(ngModel)] = "photoUrl" (change)="onValueChangedd()" name="photoUrlInput">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="add-menu-buttons">
+        <app-button buttonText="Ok" (click)="onOkClick()"></app-button>
+        <app-button buttonText="Cancel" (click)="onCancelClick()"></app-button>
+    </div>
+</div>

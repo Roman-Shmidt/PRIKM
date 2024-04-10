@@ -1,0 +1,65 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.make-booking-restaurant-name{
+    margin: 0;
+    margin-left: 1em;
+    margin-top: 1em;
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+.make-booking-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-grow: 1;
+}
+
+.make-booking-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-grow: 1;
+}
+
+.pickers-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.details-input-text{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-input-form {
+    width: 100%;
+}
+
+.app-input-form *{
+    width: 100%;
+    height: 100%;
+}

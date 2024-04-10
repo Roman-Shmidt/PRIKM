@@ -1,0 +1,33 @@
+<div class="auth">
+    <img src="../../../assets/Pictures/logo.png" alt="Icon" class="logo-icon">
+    <div class="row">       
+        <mat-form-field class="app-input-full-width">
+            <mat-label class="app-input-label">Email</mat-label>
+            <input matInput class="app-input" placeholder="Ex. pat@example.com" type="email" [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field class="app-input-full-width">
+            <mat-label class="app-input-label">Password</mat-label>
+            <input matInput class="app-input" placeholder="12345678" type="password" [(ngModel)]="password">
+        </mat-form-field>
+        <mat-form-field *ngIf="isSignInPage" class="app-input-full-width">
+            <mat-label class="app-input-label">Nickname</mat-label>
+            <input matInput class="app-input" placeholder="Skygus" type="text" [(ngModel)]="userName">
+        </mat-form-field>
+        <mat-form-field *ngIf="isSignInPage" class="app-input-full-width">
+            <mat-label class="app-input-label">Name</mat-label>
+            <input matInput class="app-input" placeholder="Pedro" type="text" [(ngModel)]="name">
+        </mat-form-field>
+        <mat-form-field *ngIf="isSignInPage && !checked" class="app-input-full-width">
+            <mat-label class="app-input-label">Last Name</mat-label>
+            <input matInput class="app-input" placeholder="Shmidt" type="text" [(ngModel)]="lastName">
+        </mat-form-field>
+        <background-container [backgroundColor]="'white'">
+            <mat-checkbox *ngIf="isSignInPage" color="primary" class="example-margin" [(ngModel)]="checked">I'm a restaurant</mat-checkbox>
+        </background-container>
+        <button mat-raised-button *ngIf="!isSignInPage" color="primary" class="app-button" (click)="onLoginClick()">Login</button>
+        <button mat-raised-button *ngIf="!isSignInPage" color="primary" class="app-button" (click)="onSignInClick()">Sign In</button>
+        <button mat-raised-button *ngIf="isSignInPage" color="primary" class="app-button" (click)="onBackClick()">Back</button>
+        <button mat-raised-button *ngIf="isSignInPage" color="primary" class="app-button" (click)="onRegisterClick()">Register</button>
+
+    </div>
+</div>
