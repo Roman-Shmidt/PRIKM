@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    environment {
-        // Telegram configuration
-        //TOKEN = credentials('Telegram_TOKEN')
-        //CHAT_ID = 723523723 //credentials('Telegram_ChatID')
-    }
 
     stages {
         stage('Start') {
