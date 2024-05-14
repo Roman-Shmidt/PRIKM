@@ -1,10 +1,15 @@
 pipeline {
     agent any
+    environment {
+        // Telegram configuration
+        TOKEN = credentials('Telegram_TOKEN')
+        CHAT_ID = credentials('Telegram_ChatID')
+    }
 
     stages {
         stage('Start') {
             steps {
-                echo 'Lab_2: started by GitHub'
+                echo 'Lab_3: started by GitHub'
             }
         }
 
@@ -14,6 +19,14 @@ pipeline {
                 sh "docker tag prikm romanshmidt/prikm:latest"
                 sh "docker tag prikm romanshmidt/prikm:$BUILD_NUMBER"
             }
+            post{
+                failure {
+                    script {
+                        // Send Telegram notification on success
+                        sh  (""" curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC  *Branch*: ${env.GIT_BRANCH} *Build* : `not OK` *Published* = `no`' """)
+                    }
+                }
+            }
         }
 
         stage('Push to registry') {
@@ -22,6 +35,14 @@ pipeline {
                 {
                     sh "docker push romanshmidt/prikm:latest"
                     sh "docker push romanshmidt/prikm:$BUILD_NUMBER"
+                }
+            }
+            post{
+                failure {
+                    script {
+                        // Send Telegram notification on success
+                        sh  (""" curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC  *Branch*: ${env.GIT_BRANCH} *Build* : `not OK` *Published* = `no`' """)
+                    }
                 }
             }
         }
@@ -34,6 +55,22 @@ pipeline {
                 //sh "docker rmi \$(docker images -q) || true"
                 sh "docker run -d -p 80:80 romanshmidt/prikm"
             }
+            post{
+                failure {
+                    script {
+                        // Send Telegram notification on success
+                        sh  (""" curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC  *Branch*: ${env.GIT_BRANCH} *Build* : `not OK` *Published* = `no`' """)
+                    }
+                }
+            }
         }
     }   
+    post{
+        failure {
+            script {
+                // Send Telegram notification on success
+                sh  ("""curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : OK *Published* = YES'""")
+            }
+        }
+    }
 }
