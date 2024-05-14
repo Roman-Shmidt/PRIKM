@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         // Telegram configuration
-        TOKEN = credentials('Telegram_TOKEN')
-        CHAT_ID = 723523723 //credentials('Telegram_ChatID')
+        //TOKEN = credentials('Telegram_TOKEN')
+        //CHAT_ID = 723523723 //credentials('Telegram_ChatID')
     }
 
     stages {
@@ -69,7 +69,11 @@ pipeline {
         success {
             script {
                 // Send Telegram notification on success
-                bat "curl -X POST -H \"Content-Type: application/json\" -d \"{\\\"chat_id\\\":${CHAT_ID}, \\\"text\\\": \\\"Pipeline succeeded!\\\", \\\"disable_notification\\\": false}\" https://api.telegram.org/bot${TOKEN}/sendMessage"
+                withCredentials([string(credentialsId: 'telegram_token', variable: 'TOKEN'), string(credentialsId: 'telegram_chatid', variable: 'CHAT_ID')]) {
+                    sh  ("""
+                        curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : OK *Published* = YES'
+                    """)
+                }
             }
         }
     }
