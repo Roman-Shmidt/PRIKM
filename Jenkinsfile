@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                echo 'Lab_3: started by GitHub'
+                echo '${TOKEN} Lab_3: started by GitHub'
             }
         }
 
