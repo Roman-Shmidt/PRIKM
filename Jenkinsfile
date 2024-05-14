@@ -48,7 +48,7 @@ pipeline {
                 sh "docker container prune --force"
                 sh "docker image prune --force"
                 //sh "docker rmi \$(docker images -q) || true"
-                sh "docker run -d -p 80:80 romanshmidt"
+                sh "docker run -d -p 80:80 romanshmidt/prikm"
             }
             post{
                 failure {
