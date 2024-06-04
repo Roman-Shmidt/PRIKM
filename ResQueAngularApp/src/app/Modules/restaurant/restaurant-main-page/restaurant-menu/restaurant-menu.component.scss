@@ -1,0 +1,61 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container{
+    width: 100%;
+    height: 350px;
+    overflow: auto;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu-button-class{
+    width: 100%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header-container{
+    height: 15%;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    margin: 0px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-right: 10px;
+}
+
+.mat-column-id {
+    width: 10%;
+    min-width: auto;
+}
+
+.mat-column-name {
+    width: 30%;
+    min-width: auto;
+}
+
+.mat-column-photoUrl {
+    width: 30%;
+    min-width: auto;
+}
+
+.mat-column-actions {
+    width: 30%;
+    min-width: auto;
+}

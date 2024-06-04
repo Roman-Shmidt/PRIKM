@@ -1,0 +1,81 @@
+<div class="update-restaurant mat-elevation-z8">
+    <h5>Restaurant info</h5>
+
+    <form class="app-input-form">
+        <div class="input-groups">
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Name</mat-label>
+                <input matInput class="app-input" [(ngModel)]="restaurant.name" name="nameInput">
+            </mat-form-field>
+
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Image</mat-label>
+                <input matInput class="app-input" [(ngModel)]="restaurant.image" name="imageInput">
+            </mat-form-field>
+
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Telephone</mat-label>
+                <input matInput class="app-input" [(ngModel)]="restaurant.telephone" name="telephoneInput">
+            </mat-form-field>
+        </div>
+        <div class="input-groups">
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Address</mat-label>
+                <input matInput class="app-input" [(ngModel)]="restaurant.address" name="addressInput">
+            </mat-form-field>
+
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Longitude</mat-label>
+                <input matInput class="app-input" [(ngModel)]="restaurant.longitude" name="longitudeInput" type="number">
+            </mat-form-field>
+
+            <mat-form-field class="app-input-full-width">
+                <mat-label class="app-input-label">Latitude</mat-label>
+                <input matInput class="app-input" [(ngModel)]="restaurant.latitude" name="latitudeInput" type="number">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="app-input-full-width">
+            <mat-label class="app-input-label">About</mat-label>
+            <input matInput class="app-input" [(ngModel)]="restaurant.about" name="aboutInput">
+        </mat-form-field>
+        
+        <div class="pickers-wrapper">
+            <div class="form-group">
+                <div class="form-date-picker">
+                    <igx-date-picker #openingTimePicker name="openingTime-picker" [(ngModel)]="restaurant.openingTime">
+                        <label igxLabel>Opening Time</label>
+                    </igx-date-picker>
+                </div>
+                <div class="form-time-picker">
+                    <igx-time-picker name="openingTime-picker" [(ngModel)]="restaurant.openingTime"
+                        [disabled]="openingTimePicker.value ? false : true">
+                        <label igxLabel>Time</label>
+                    </igx-time-picker>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-date-picker">
+                    <igx-date-picker #closingTimePicker name="closingTime-picker" [(ngModel)]="restaurant.closingTime">
+                        <label igxLabel>Closing Time</label>
+                    </igx-date-picker>
+                </div>
+                <div class="form-time-picker">
+                    <igx-time-picker name="closingTime-picker" [(ngModel)]="restaurant.closingTime"
+                        [disabled]="closingTimePicker.value ? false : true">
+                        <label igxLabel>Time</label>
+                    </igx-time-picker>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="update-restaurant-buttons">
+            <app-button buttonText="Apply" (click)="onApplyClick()"></app-button>
+            <app-button buttonText="Revert" (click)="onRevertClick()"></app-button>
+        </div>
+
+    </form>
+</div>
