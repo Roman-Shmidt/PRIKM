@@ -1,0 +1,18 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.table-container{
+    width: 95%;
+    height: 400px;
+    overflow: auto;
+    background-color: white;
+}
+
+.header-container{
+    height: 15%;
+}

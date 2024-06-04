@@ -1,0 +1,60 @@
+.details-info-containers{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 80%;
+    gap: 0.5em;
+}
+
+details-info-container{
+    background-color: whitesmoke;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+details-info-container.location{
+    min-width: 30%;
+}
+
+restaurant-location{
+    height: 100%;
+    width: 100%;
+}
+
+.location{
+    width: 80%;
+}
+
+.Header{
+    text-align: center;
+    margin: 0.7em;
+    font-weight: bold;
+}
+
+.details-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
+.details-restaurant-status{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.details-restaurant-status.restaurant-status-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-list{
+    flex-grow: 1;
+    width: 80%;
+}

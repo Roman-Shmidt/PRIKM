@@ -1,0 +1,5 @@
+<div *ngFor="let tableData of tablesData">
+    <ng-container *ngIf="tableData.dishes">
+        <menu-container [tableTitle]="tableData.name" [dataToDisplay]="tableData.dishes"></menu-container>
+    </ng-container>
+</div>

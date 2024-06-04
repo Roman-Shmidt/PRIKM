@@ -1,0 +1,14 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 0.75em;
+}
+
+.restaurant-status-text{
+    margin: 0.4em;
+    font-weight: bold;
+    font-size: 1.1em;
+}

@@ -1,0 +1,39 @@
+.chart-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 1em;
+}
+
+.reviews-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: fit-content;
+    width: 80%;
+    gap: 0.5em;
+}
+
+.chart-details{
+    height: 100%;
+}
+
+.reviews-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.retaurant-reviews-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+    margin: 1em;
+}
